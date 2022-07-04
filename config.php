@@ -20,5 +20,5 @@
         $connect->set_charset('utf8');
     endif;
 
-    myPrint_r($connect);
+    //myPrint_r($connect);
 ?>
