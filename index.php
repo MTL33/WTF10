@@ -3,6 +3,7 @@ require_once 'config.php';
 
 $rq = "SELECT * FROM `news`";
 $result = $connect->query($rq);
+echo $connect->error;
 
 
 $allNews = $result->fetch_all(MYSQLI_ASSOC); // fetch all d'office en assoc
@@ -19,7 +20,7 @@ myPrint_r($allNews);
     <style>
         details[open] summary{
             background: red;
-            display: none;
+            display: ;
         }
     </style>
 </head>
@@ -31,5 +32,12 @@ myPrint_r($allNews);
             <?php echo $news['contenu'];?>
     </details>
     <?php endforeach;?>
+
+<!-- ULLI-->
+<ul>
+<?php foreach($allNews as $key => $news):?>
+       <li data-key="<?php echo $key;?>" class="news-item"><a href="details-news.php?id_news=<?php echo $news["id"];?>"><?php echo $news['titre'];?></li></a>
+    <?php endforeach;?>
+    </ul>
 </body>
 </html>
